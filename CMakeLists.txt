@@ -8,7 +8,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 file(GLOB_RECURSE HEADER_FILES include/*.h)
 
-add_executable(TilemapUtility
+add_library(lib-TilemapUtility SHARED
 ${SOURCE_FILES}
 ${HEADER_FILES}
 )
+
+add_executable(TilemapUtility src/main.cpp)
+
+target_link_libraries(TilemapUtility lib-TilemapUtility)
