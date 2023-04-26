@@ -18,6 +18,9 @@ Texture::Texture(const char* path) {
     printf("Loaded: %s\n", path);
     location = path;
     max_size = width * height * channel_count;
+    if (channel_count > 3) {
+      printf("WARNING: Images includes alpha channel!\n");
+    }
   } else {
     printf("Failed to load: %s\n", path);
   }
